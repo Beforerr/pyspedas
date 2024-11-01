@@ -21,6 +21,7 @@ dependencies = [
 [project.optional-dependencies]
 analysis = ["geopack>=1.0.11", "pywavelets"]
 client = ["viresclient", "hapiclient>=0.2.2"]
+dev = ["ipython"]
 
 [project.urls]
 Documentation = "https://pyspedas.readthedocs.io"
@@ -32,3 +33,13 @@ build-backend = "pdm.backend"
 
 [tool.pdm.version]
 source = "scm"
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
+
+[tool.pixi.environments]
+default = ["dev", "analysis", "client"]
+
+[tool.pixi.dependencies]
+netcdf4 = "*"
